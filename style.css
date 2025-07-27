@@ -1,0 +1,341 @@
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Add a black background color to the top navigation */
+.topnav-left {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background-color: #000000; /* Solid background */
+  color: white;
+  padding: 15px 20px;
+  z-index: 1000;
+  opacity: 1;        
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav-left a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  .topnav-left a img {
+    width: 100px;
+    height: 100%;
+    margin-right: 8px;
+    background-image: url("file:///C:/Users/Waseem/OneDrive/Desktop/VS%20Code%20files/.vscode/my%20personal%20project/photos/Logo.png");
+  }
+  
+  /* Change the color of links on hover */
+  .topnav-left a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Add a color to the active/current link */
+  .topnav-left a.active {
+    background-color: #0b7c2b;
+    color: white;
+  }
+
+  .logo {
+    float: left;
+    background-size:cover;
+    background-position: left;
+    background-image: url("photos\Logo.png");
+    width: 100px;
+    height: 50px;
+  }
+
+  .topnav-right {
+    float: right;
+    text-align: right;
+  }
+
+  @keyframes typing {
+    0.0000%, 27.3488% { content: ""; }
+    1.1395%, 26.2093% { content: "d"; }
+    2.2791%, 25.0698% { content: "de"; }
+    3.4186%, 23.9302% { content: "dev"; }
+    4.5581%, 22.7907% { content: "deve"; }
+    5.6977%, 21.6512% { content: "devel"; }
+    6.8372%, 20.5116% { content: "develo"; }
+    7.9767%, 19.3721% { content: "develop"; }
+    9.1163%, 18.2326% { content: "develope"; }
+    10.2558%, 17.0930% { content: "developer"; }
+  
+    30.7674%, 51.2791% { content: ""; }
+    31.9070%, 50.1395% { content: "w"; }
+    33.0465%, 49.0000% { content: "wr"; }
+    34.1860%, 47.8605% { content: "wri"; }
+    35.3256%, 46.7209% { content: "writ"; }
+    36.4651%, 45.5814% { content: "write"; }
+    37.6047%, 44.4419% { content: "writer"; }
+  
+    54.6977%, 75.2093% { content: ""; }
+    55.8372%, 74.0698% { content: "m"; }
+    56.9767%, 72.9302% { content: "mo"; }
+    58.1163%, 71.7907% { content: "mod"; }
+    59.2558%, 70.6512% { content: "mode"; }
+    60.3953%, 69.5116% { content: "model"; }
+    61.5349%, 68.3721% { content: "modell"; }
+    62.6744%, 67.2326% { content: "modelle"; }
+    63.8140%, 66.0930% { content: "modeller"; }
+  
+    78.6279%, 96.8605% { content: ""; }
+    79.7674%, 95.7209% { content: "s"; }
+    80.9069%, 94.5814% { content: "sc"; }
+    82.0465%, 93.4419% { content: "scr"; }
+    83.1860%, 92.3023% { content: "scri"; }
+    84.3256%, 91.1628% { content: "scrip"; }
+    85.4651%, 90.0233% { content: "script"; }
+    86.6047%, 89.8837% { content: "scripto"; }
+    87.7442%, 88.7442% { content: "scriptor"; }
+
+  }
+  
+  .typewriter {
+    --caret: currentcolor: white;
+  }
+
+  .typewriter::after {
+    content: " ";
+    animation: typing 15s steps(25) infinite;
+    color: #0b7c2b;
+  }
+
+  .hero {
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    color: black;
+    padding: 50px;
+  }
+
+  .centered {
+    top: 27%;
+    left: 10%;
+    position: absolute;
+  }
+
+  /* Style the video: 100% width and height to cover the entire window */
+#myVideo {
+  width: 100vw;
+  max-width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 100%;
+  z-index: -1; /* Ensure the video is behind other content */
+}
+
+/* Add some content at the bottom of the video/page */
+.content {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 10px;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+a[href="#courses"] {
+  text-decoration: none;
+  color:white;
+  transition: background-color 0.3s ease;
+}
+
+.white-section {
+  background-color: white;
+  width: 100%;
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0 auto;
+  padding: 15px 20px;
+  z-index: 2;
+  height: 1700px;
+  left: 0;
+  right: -5vw;
+  position: relative;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  flex-direction:row;
+  flex-wrap: wrap;
+  gap: 40px;
+  text-align: center;
+}
+
+.whitewithborder {
+  background-color: white;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  width: 25vw;
+  padding: 15px 20px;
+  z-index: 2;
+  height: 200px;
+  left: 0;
+  right: 0;
+  position: relative;
+  border: solid black;
+}
+
+.whitewithborder img {
+  width: 15%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.whyweexist {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.whyweexist h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.footer {
+  background-color: #000000;
+  color: white;
+  left: -10px;
+  text-align: center;
+  z-index: 1000;
+  padding: 10px 0px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+}
+
+.white-container {
+  position: relative;      /* or absolute/fixed if you prefer */
+  z-index: 2;              /* sits above any background at z-index 2 */
+  opacity: 0;              /* start hidden */
+  transform: translateY(20px); /* optional: slide up */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.white-container.is-visible {
+  opacity: 1;
+  z-index: 3;
+  transform: translateY(0);
+}
+
+.whitewithborder2 {
+  background-color: white;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  width: 25vw;
+  padding: 15px 20px;
+  z-index: 2;
+  height: 200px;
+  left: 0;
+  right: 0;
+  position: relative;
+  border: solid black;
+}
+
+
+.founder-image {
+  width: 15%;
+  height: auto;
+  object-fit: cover;
+  border: 2px solid #4CAF50;
+  border-radius: 15px;
+  margin-right: 30px;
+}
+
+.grey-section {
+  background-color: #f0f0f0;
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0 auto;
+  padding: 20px;
+  z-index: 2;
+  height: 350px;
+  position: relative;
+}
+
+.grey-section p {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 1rem;
+  text-align: right;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  flex: 1;
+  color: black;
+}
+
+.grey-section h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-align: right;
+}
+
+.what h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-align: center;
+  
+}
+
+.floatleft-logo {
+  width: 15%;
+  height: auto;
+  object-fit: cover;
+  border: 2px solid #4CAF50;
+  border-radius: 15px;
+  margin-right: 30px;
+
+}
+
+.logo_association {
+  width: 15%;
+  height: auto;
+  object-fit: cover;
+  border: 2px solid #4CAF50;
+  border-radius: 15px;
+  margin-right: 30px;
+  background-image: url("file:///C:/Users/Waseem/Downloads/download.png");
+}
