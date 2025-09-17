@@ -34,7 +34,7 @@
             <div class="heading-container">
                 <h2>Recommended for first-time users!</h2>
             </div>
-            <div class="container">
+            <div class="HorizontalLine">
                 <div class="course-card">
                 <h2 class="course-title">Start your (Unity) Engine!</h2>
                 <div class="course-content">
@@ -53,12 +53,13 @@
             <div class="heading-container">
                 <h2>For Unity Beginners</h2>
             </div>
-            <div class="container">
+            <div class="HorizontalLine">
+            <div class="courses-scroll">
                 <div class="course-card">
                 <h2 class="course-title">Scripting codes in Unity</h2>
                 <div class="course-content">
                     <div class="course-image">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBZLvXejweU2WlzhcY40cKpDHg8QtWscevujaaURbbbgG8hDq8rYGrUMTT2WJ8w28nbyQ&usqp=CAU" alt="Course Image">
+                    <img src="course_codingUnity.png" alt="Course Image">
                     </div>
                     <div class="course-details">
                     <p>Learn how to see the properties of a GameObject in Unity, like: Positions, rotations, textiles, compoments, and RigidBody</p>
@@ -96,7 +97,38 @@
                     <button class="open-course-button">Open course</button>
                 </div>
                 </div>
-              </div>
+            </div>
+                          <div class="course-card">
+                <h2 class="course-title">Unity AI</h2>
+                <div class="course-content">
+                <div class="course-image">
+                <img src="file:///C:/Users/Waseem/Downloads/Course%20Thumbnail.png" alt="Course Thumbnail" />
+                </div>
+                <div class="course-details">
+                <p>
+                    know about the AI system in Unity, and how to make enemies chase you, and attack you.
+                </p>
+                    <p class="course-progress">Course progress: not started</p>
+                    <button class="open-course-button">Open course</button>
+                </div>
+                </div>
+            </div>
+                          <div class="course-card">
+                <h2 class="course-title">Animation and audio in Unity</h2>
+                <div class="course-content">
+                <div class="course-image">
+                <img src="file:///C:/Users/Waseem/Downloads/Course%20Thumbnail.png" alt="Course Thumbnail" />
+                </div>
+                <div class="course-details">
+                <p>
+                    Learn how to add animations to your characters, and make them move, jump, and run. and also add audio to your game.
+                </p>
+                    <p class="course-progress">Course progress: not started</p>
+                    <button class="open-course-button">Open course</button>
+                </div>
+                </div>
+            </div>
+            </div>
             </div>
         </div>
     </section>
@@ -136,6 +168,9 @@
 
 document.querySelectorAll('.course-card').forEach(card => {
   const button = card.querySelector('button');
+  let inProcess1 = false;
+  let inProcess2 = false;
+  let inProcess3 = false;
   const courseProgress = card.querySelector('.course-progress');
   if (button && courseProgress) {
     button.addEventListener('mouseover', () => {
@@ -147,7 +182,9 @@ document.querySelectorAll('.course-card').forEach(card => {
     button.addEventListener('click', () => {
       courseProgress.textContent = 'Course progress: in progress';
       button.textContent = 'Continue course';
-      button.style.backgroundColor = '#4CAF50'; // Change to greener to indicate completion
+      button.style.backgroundColor = '#4CAF50';
+      inProcess1 = true;
+       // Change to greener to indicate completion
     });
   }
 });

@@ -171,7 +171,7 @@ html, body {
       background-color: #f4f4f4;
       border-radius: 5px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      height: 500px;
+      height: 1000px;
       max-width: 100%;
       margin-left: auto;
       margin-right: auto;
@@ -205,6 +205,18 @@ html, body {
       height: auto;
       z-index: 5;
     }
+
+.HorizontalLine {
+      border-top: 2px solid #333;
+      width: 90%;
+      gap: 20px;
+      height: auto;
+      z-index: 5;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
     .course-card:hover {
       transform: scale(1.05);
     }
@@ -212,7 +224,8 @@ html, body {
   border: 2px solid #ccc;
   border-radius: 16px;
   padding: 16px;
-  max-width: 690px;
+  height: auto;
+  width: 390px;
   margin: auto;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   background-color: #fff;
@@ -246,6 +259,25 @@ html, body {
 
 .course-details h3 {
   margin-top: 0;
+}
+
+.courses-scroll {
+  display: flex;
+  overflow-x: auto;   /* enables horizontal scroll */
+  gap: 20px;          /* spacing between cards */
+  padding: 10px 0;
+  scrollbar-width: thin; /* makes scrollbar smaller (Firefox) */
+}
+
+.courses-scroll::-webkit-scrollbar {
+  height: 8px; /* horizontal scrollbar height */
+}
+.courses-scroll::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+.courses-scroll::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .course-progress {
