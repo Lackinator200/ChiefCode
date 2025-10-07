@@ -131,6 +131,14 @@
             </div>
             </div>
         </div>
+        <div>
+            <div class="to_be_added">
+                <h1>More courses to be added soon!</h1>
+                <h3>We are working hard to add more courses, and we will be adding more courses soon!</h3>
+                <h3>If you have any suggestions, please contact us!</h3>
+                
+            </div>
+        </div>
     </section>
     <div id="account-info-bar">
         <span class="close-button">×</span>
@@ -144,51 +152,86 @@
             <li><a href="#">Switch account</a></li>
         </ul>
     </div>
-    <script>
-        const accountIcon = document.getElementById('account-face');
-        const accountInfoBar = document.getElementById('account-info-bar');
-        const closeButton = document.querySelector('#account-info-bar .close-button');
+        <script>
+                // Account bar logic
+                const accountIcon = document.getElementById('account-face');
+                const accountInfoBar = document.getElementById('account-info-bar');
+                const closeButton = document.querySelector('#account-info-bar .close-button');
 
-        accountIcon.addEventListener('click', () => {
-            accountInfoBar.classList.add('show');
-            document.body.style.overflow = 'hidden';
-        });
+                accountIcon.addEventListener('click', () => {
+                        accountInfoBar.classList.add('show');
+                        document.body.style.overflow = 'hidden';
+                });
 
-        closeButton.addEventListener('click', () => {
-            accountInfoBar.classList.remove('show');
-            document.body.style.overflow = '';
-        });
+                closeButton.addEventListener('click', () => {
+                        accountInfoBar.classList.remove('show');
+                        document.body.style.overflow = '';
+                });
 
-        document.addEventListener('click', (event) => {
-            if (!accountInfoBar.contains(event.target) && event.target !== accountIcon) {
-                accountInfoBar.classList.remove('show');
-                document.body.style.overflow = '';
-            }
-        });
+                document.addEventListener('click', (event) => {
+                        if (!accountInfoBar.contains(event.target) && event.target !== accountIcon) {
+                                accountInfoBar.classList.remove('show');
+                                document.body.style.overflow = '';
+                        }
+                });
 
-document.querySelectorAll('.course-card').forEach(card => {
-  const button = card.querySelector('button');
-  let inProcess1 = false;
-  let inProcess2 = false;
-  let inProcess3 = false;
-  const courseProgress = card.querySelector('.course-progress');
-  if (button && courseProgress) {
-    button.addEventListener('mouseover', () => {
-      button.style.backgroundColor = '#367C39';
-    });
-    button.addEventListener('mouseout', () => {
-      button.style.backgroundColor = '#28a745';
-    });
-    button.addEventListener('click', () => {
-      courseProgress.textContent = 'Course progress: in progress';
-      button.textContent = 'Continue course';
-      button.style.backgroundColor = '#4CAF50';
-      inProcess1 = true;
-       // Change to greener to indicate completion
-    });
-  }
-});
-                            
-    </script>
+                // Course card button hover/click logic
+                document.querySelectorAll('.course-card').forEach(card => {
+                    const button = card.querySelector('button');
+                    let inProcess1 = false;
+                    let inProcess2 = false;
+                    let inProcess3 = false;
+                    const courseProgress = card.querySelector('.course-progress');
+                    if (button && courseProgress) {
+                        button.addEventListener('mouseover', () => {
+                            button.style.backgroundColor = '#367C39';
+                        });
+                        button.addEventListener('mouseout', () => {
+                            button.style.backgroundColor = '#28a745';
+                        });
+                        button.addEventListener('click', () => {
+                            courseProgress.textContent = 'Course progress: in progress';
+                            button.textContent = 'Continue course';
+                            button.style.backgroundColor = '#4CAF50';
+                            inProcess1 = true;
+                        });
+                    }
+                });
+
+                        // Topbar and account logo hide on scroll down, show on scroll up
+                        let lastScrollY = window.scrollY;
+                        const topbar = document.querySelector('.topnav-left');
+                        const accountFace = document.getElementById('account-face');
+                        let ticking = false;
+
+                        function handleScroll() {
+                            const currentScrollY = window.scrollY;
+                            if (currentScrollY > lastScrollY && currentScrollY > 60) {
+                                // Scrolling down
+                                topbar.style.transform = 'translateY(-100%)';
+                                if (accountFace) accountFace.style.transform = 'translateY(-150%)';
+                            } else {
+                                // Scrolling up
+                                topbar.style.transform = 'translateY(0)';
+                                if (accountFace) accountFace.style.transform = 'translateY(0)';
+                            }
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        }
+
+                        window.addEventListener('scroll', function() {
+                            if (!ticking) {
+                                window.requestAnimationFrame(handleScroll);
+                                ticking = true;
+                            }
+                        });
+                        // Ensure topbar and account logo are visible on page load
+                        topbar.style.transition = 'transform 0.3s cubic-bezier(0.4,0,0.2,1)';
+                        topbar.style.transform = 'translateY(0)';
+                        if (accountFace) {
+                            accountFace.style.transition = 'transform 0.3s cubic-bezier(0.4,0,0.2,1)';
+                            accountFace.style.transform = 'translateY(0)';
+                        }
+        </script>
     </body>
 </html>
