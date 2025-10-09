@@ -3,51 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unity C# Course 1</title>
+  <title>Unity C# Course 1 - Basics</title>
   <link rel="stylesheet" href="style5.css">
 </head>
 <body>
   <header>
-    <h1>Unity C# Basics - Course 1</h1>
+    <h1>Unity C# Basics Course</h1>
+    <div id="progress-display">Progress: <span id="progress-text">Lesson 1 of 6</span></div>
   </header>
 
-  <section id="lesson-section">
-    <h2 id="lesson-title"></h2>
-    <div id="lesson-video-container">
-      <video id="lesson-video" controls></video>
-      <button id="continue-btn">Continue</button>
-    </div>
-
-    <div id="lesson-reading" class="hidden">
-      <p id="lesson-description"></p>
-      <pre><code id="lesson-example"></code></pre>
-      <button id="toActivityBtn">Start Activity</button>
-    </div>
-
-    <div id="lesson-activity" class="hidden">
-      <p id="activity-instruction"></p>
-      <div class="drag-container">
-        <div class="draggables" id="draggable-container"></div>
-        <div class="droppables" id="droppable-container"></div>
-      </div>
-      <p id="activity-feedback"></p>
-      <button id="nextLessonBtn">Next Lesson</button>
-    </div>
+  <!-- Video Section -->
+  <section id="video-section">
+    <h2 id="lesson-title">Lesson 1: Variables</h2>
+    <video id="lesson-video" controls>
+      <source id="lesson-video-src" src="lesson1.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <button id="continue-btn">Continue to Reading</button>
   </section>
 
+  <!-- Reading Section -->
+  <section id="reading-section" class="hidden">
+    <h2 id="reading-title">Lesson Reading</h2>
+    <p id="reading-content"></p>
+    <pre id="reading-example" class="code-box"></pre>
+    <button id="start-activity-btn">Start Activity</button>
+  </section>
+
+  <!-- Activity Section -->
+  <section id="activity-section" class="hidden">
+    <h2 id="activity-title">Lesson Activity</h2>
+    <p>Drag the correct term to its matching meaning.</p>
+    <div id="drag-container" class="drag-container"></div>
+    <p id="activity-feedback"></p>
+    <button id="next-lesson-btn" class="hidden">Next Lesson</button>
+  </section>
+
+  <!-- Quiz Section -->
   <section id="quiz-section" class="hidden">
     <h2>Final Quiz</h2>
-    <p>You have 5 minutes to complete this quiz.</p>
     <div id="quiz-timer">Time Left: 5:00</div>
     <div id="quiz-container"></div>
-    <button id="submitQuizBtn">Submit Quiz</button>
+    <button id="submit-quiz-btn">Submit Quiz</button>
     <p id="quiz-result"></p>
-  </section>
-
-  <section id="locked-section" class="hidden">
-    <h2>✅ Course Complete!</h2>
-    <p>You’ve completed all 6 Unity C# lessons and the quiz.</p>
-    <a href="dashboard.html" id="dashboardLink">Go to Dashboard</a>
+    <button id="dashboard-btn" class="hidden">Return to Dashboard</button>
   </section>
 
   <script src="course1.js"></script>

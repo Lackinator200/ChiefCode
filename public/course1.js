@@ -1,251 +1,251 @@
-// Data for all 6 lessons
 const lessons = [
   {
-    title: "Lesson 1: Variables",
+    title: "Variables",
     video: "lesson1.mp4",
-    description: "Variables are used to store data values. They can hold integers, strings, floats, and more.",
-    example: `int score = 0;\nfloat speed = 3.5f;\nstring playerName = "Hero";`,
-    activity: {
-      question: "Match the variable type to its correct example:",
-      pairs: {
-        "int": "Whole number",
-        "float": "Decimal number",
-        "string": "Text value"
-      }
-    }
+    reading: "Variables store data that your game uses — numbers, text, or booleans. In C#, you must declare the data type.",
+    example: `int score = 0;
+float speed = 5.5f;
+string playerName = "Alex";`,
+    activity: [
+      { term: "int", meaning: "Stores whole numbers" },
+      { term: "float", meaning: "Stores decimal numbers" },
+      { term: "string", meaning: "Stores text data" }
+    ]
   },
   {
-    title: "Lesson 2: Methods",
+    title: "Methods",
     video: "lesson2.mp4",
-    description: "Methods are blocks of code that perform specific tasks. They make code reusable.",
-    example: `void Jump() {\n   Debug.Log("Jump!");\n}`,
-    activity: {
-      question: "Match each concept to its meaning:",
-      pairs: {
-        "Method": "Performs an action",
-        "Return type": "Defines what the method outputs",
-        "Parameter": "Data passed into a method"
-      }
-    }
+    reading: "Methods are functions that perform actions. You can call them to reuse code.",
+    example: `void Jump() {
+  Debug.Log("Jump!");
+}`,
+    activity: [
+      { term: "void", meaning: "Returns nothing" },
+      { term: "parameter", meaning: "Information passed into a method" },
+      { term: "return", meaning: "Sends data back from a method" }
+    ]
   },
   {
-    title: "Lesson 3: void Start() and Update()",
+    title: "void Start() and Update()",
     video: "lesson3.mp4",
-    description: "Start() runs once at the beginning. Update() runs every frame.",
-    example: `void Start() {\n   Debug.Log("Game started");\n}\n\nvoid Update() {\n   transform.Translate(1 * Time.deltaTime, 0, 0);\n}`,
-    activity: {
-      question: "Match the Unity functions with their purpose:",
-      pairs: {
-        "Start()": "Runs once when the game begins",
-        "Update()": "Runs every frame",
-        "Time.deltaTime": "Smooth frame-based movement"
-      }
-    }
+    reading: "Unity calls Start() once at the beginning and Update() every frame. These are the foundation of Unity scripts.",
+    example: `void Start() {
+  Debug.Log("Game Start");
+}
+
+void Update() {
+  transform.Translate(Vector3.forward * Time.deltaTime);
+}`,
+    activity: [
+      { term: "Start()", meaning: "Runs once when the script starts" },
+      { term: "Update()", meaning: "Runs every frame" },
+      { term: "Time.deltaTime", meaning: "Smooths movement between frames" }
+    ]
   },
   {
-    title: "Lesson 4: Changing GameObject Properties",
+    title: "Changing GameObject Properties",
     video: "lesson4.mp4",
-    description: "You can modify GameObject properties such as position, scale, and color in scripts.",
-    example: `transform.position = new Vector3(0, 5, 0);\nGetComponent<Renderer>().material.color = Color.red;`,
-    activity: {
-      question: "Match the property with what it changes:",
-      pairs: {
-        "transform.position": "Moves the GameObject",
-        "transform.localScale": "Resizes the GameObject",
-        "material.color": "Changes the GameObject color"
-      }
-    }
+    reading: "You can modify a GameObject’s position, scale, and color through its components.",
+    example: `transform.position = new Vector3(0, 3, 0);
+GetComponent<Renderer>().material.color = Color.red;`,
+    activity: [
+      { term: "transform", meaning: "Controls object’s position and scale" },
+      { term: "GetComponent", meaning: "Finds a component in the object" },
+      { term: "Color", meaning: "Used to set material color" }
+    ]
   },
   {
-    title: "Lesson 5: Conditionals",
+    title: "Conditionals (if Statements)",
     video: "lesson5.mp4",
-    description: "Conditionals let you make decisions in code using if, else if, and else.",
-    example: `if (score > 10) {\n   Debug.Log("You win!");\n} else {\n   Debug.Log("Keep trying!");\n}`,
-    activity: {
-      question: "Match the conditionals to their behavior:",
-      pairs: {
-        "if": "Runs when condition is true",
-        "else if": "Checks another condition",
-        "else": "Runs when all other conditions are false"
-      }
-    }
+    reading: "Conditionals let you decide when code should run. They're essential for checking states like health or score.",
+    example: `if (health <= 0) {
+  Debug.Log("Game Over");
+}`,
+    activity: [
+      { term: "if", meaning: "Checks a condition" },
+      { term: "else", meaning: "Executes if the condition is false" },
+      { term: "==", meaning: "Tests for equality" }
+    ]
   },
   {
-    title: "Lesson 6: Combining Everything",
+    title: "Combining Concepts",
     video: "lesson6.mp4",
-    description: "Combine all you learned: use variables, methods, and conditions to create simple behaviors.",
-    example: `int health = 100;\nvoid Update() {\n  if (health <= 0) {\n    Debug.Log("Game Over");\n  }\n}`,
-    activity: {
-      question: "Match each term to its role:",
-      pairs: {
-        "Variable": "Stores data",
-        "Method": "Executes code repeatedly",
-        "Conditional": "Checks for true/false situations"
-      }
-    }
+    reading: "Let’s combine all skills to make simple mechanics using methods and conditionals.",
+    example: `int score = 0;
+
+void AddScore() {
+  score += 10;
+  if (score >= 100) {
+    Debug.Log("You win!");
+  }
+}`,
+    activity: [
+      { term: "AddScore()", meaning: "Increases the player score" },
+      { term: "score", meaning: "Tracks player points" },
+      { term: "Debug.Log", meaning: "Displays message in console" }
+    ]
   }
 ];
 
-let currentLesson = 0;
+const videoSection = document.getElementById('video-section');
+const readingSection = document.getElementById('reading-section');
+const activitySection = document.getElementById('activity-section');
+const quizSection = document.getElementById('quiz-section');
+const feedback = document.getElementById('activity-feedback');
+const nextLessonBtn = document.getElementById('next-lesson-btn');
+const progressText = document.getElementById('progress-text');
 
-// Elements
-const title = document.getElementById("lesson-title");
-const video = document.getElementById("lesson-video");
-const desc = document.getElementById("lesson-description");
-const example = document.getElementById("lesson-example");
-const continueBtn = document.getElementById("continue-btn");
-const toActivityBtn = document.getElementById("toActivityBtn");
-const nextLessonBtn = document.getElementById("nextLessonBtn");
-const reading = document.getElementById("lesson-reading");
-const videoContainer = document.getElementById("lesson-video-container");
-const activity = document.getElementById("lesson-activity");
-const feedback = document.getElementById("activity-feedback");
-const dragContainer = document.getElementById("draggable-container");
-const dropContainer = document.getElementById("droppable-container");
-const quizSection = document.getElementById("quiz-section");
-const lockedSection = document.getElementById("locked-section");
-const lessonSection = document.getElementById("lesson-section");
+let currentLesson = parseInt(localStorage.getItem('unity_course1_progress')) || 0;
+updateLessonDisplay();
 
-function loadLesson(index) {
-  const l = lessons[index];
-  title.textContent = l.title;
-  video.src = l.video;
-  desc.textContent = l.description;
-  example.textContent = l.example;
-
-  // Reset visibility
-  videoContainer.classList.remove("hidden");
-  reading.classList.add("hidden");
-  activity.classList.add("hidden");
-  feedback.textContent = "";
-
-  // Setup activity
-  dragContainer.innerHTML = "";
-  dropContainer.innerHTML = "";
-  document.getElementById("activity-instruction").textContent = l.activity.question;
-
-  for (const [key, val] of Object.entries(l.activity.pairs)) {
-    const drag = document.createElement("div");
-    drag.textContent = key;
-    drag.classList.add("draggable");
-    drag.setAttribute("draggable", "true");
-    drag.dataset.match = key;
-    dragContainer.appendChild(drag);
-
-    const drop = document.createElement("div");
-    drop.textContent = val;
-    drop.classList.add("droppable");
-    drop.dataset.accept = key;
-    dropContainer.appendChild(drop);
-  }
-  setupDragDrop();
+function updateLessonDisplay() {
+  const lesson = lessons[currentLesson];
+  document.getElementById('lesson-title').textContent = `Lesson ${currentLesson + 1}: ${lesson.title}`;
+  document.getElementById('lesson-video-src').src = lesson.video;
+  document.getElementById('lesson-video').load();
+  progressText.textContent = `Lesson ${currentLesson + 1} of ${lessons.length}`;
 }
 
-continueBtn.onclick = () => {
-  videoContainer.classList.add("hidden");
-  reading.classList.remove("hidden");
+document.getElementById('continue-btn').onclick = () => {
+  videoSection.classList.add('hidden');
+  readingSection.classList.remove('hidden');
+  const lesson = lessons[currentLesson];
+  document.getElementById('reading-title').textContent = lesson.title;
+  document.getElementById('reading-content').textContent = lesson.reading;
+  document.getElementById('reading-example').textContent = lesson.example;
 };
 
-toActivityBtn.onclick = () => {
-  reading.classList.add("hidden");
-  activity.classList.remove("hidden");
+document.getElementById('start-activity-btn').onclick = () => {
+  readingSection.classList.add('hidden');
+  activitySection.classList.remove('hidden');
+  feedback.textContent = '';
+  nextLessonBtn.classList.add('hidden');
+  buildActivity();
 };
+
+function buildActivity() {
+  const lesson = lessons[currentLesson];
+  const container = document.getElementById('drag-container');
+  container.innerHTML = `
+    <div class="draggables">
+      ${lesson.activity.map(a => `<div class="draggable" draggable="true" data-term="${a.term}">${a.term}</div>`).join('')}
+    </div>
+    <div class="droppables">
+      ${lesson.activity.map(a => `<div class="droppable" data-term="${a.term}">${a.meaning}</div>`).join('')}
+    </div>`;
+  enableDragDrop();
+}
+
+function enableDragDrop() {
+  const draggables = document.querySelectorAll('.draggable');
+  const droppables = document.querySelectorAll('.droppable');
+  let correctCount = 0;
+
+  draggables.forEach(drag => {
+    drag.addEventListener('dragstart', e => e.dataTransfer.setData('text', drag.dataset.term));
+  });
+
+  droppables.forEach(drop => {
+    drop.addEventListener('dragover', e => e.preventDefault());
+    drop.addEventListener('drop', e => {
+      const draggedTerm = e.dataTransfer.getData('text');
+      if (!drop.classList.contains('correct')) {
+        if (draggedTerm === drop.dataset.term) {
+          drop.classList.add('correct');
+          correctCount++;
+          feedback.textContent = `✅ ${draggedTerm} is correct! (${correctCount}/3)`;
+        } else {
+          drop.classList.add('wrong');
+          feedback.textContent = `❌ Incorrect match. Try again! (${correctCount}/3)`;
+        }
+
+        if (correctCount >= 3) {
+          nextLessonBtn.classList.remove('hidden');
+          feedback.textContent = "🎉 Great work! You completed this activity.";
+        } else if (correctCount < 2 && document.querySelectorAll('.wrong').length >= 1) {
+          feedback.textContent = "⚠️ You need to review again.";
+          setTimeout(() => {
+            activitySection.classList.add('hidden');
+            readingSection.classList.remove('hidden');
+            feedback.textContent = '';
+          }, 1500);
+        }
+      }
+    });
+  });
+}
 
 nextLessonBtn.onclick = () => {
-  currentLesson++;
-  if (currentLesson < lessons.length) {
-    loadLesson(currentLesson);
+  if (currentLesson < lessons.length - 1) {
+    currentLesson++;
+    localStorage.setItem('unity_course1_progress', currentLesson);
+    activitySection.classList.add('hidden');
+    videoSection.classList.remove('hidden');
+    updateLessonDisplay();
   } else {
-    lessonSection.classList.add("hidden");
+    localStorage.setItem('unity_course1_progress', 'quiz');
     startQuiz();
   }
 };
 
-function setupDragDrop() {
-  const draggables = document.querySelectorAll(".draggable");
-  const droppables = document.querySelectorAll(".droppable");
-
-  draggables.forEach(drag => {
-    drag.addEventListener("dragstart", e => {
-      e.dataTransfer.setData("text", drag.dataset.match);
-    });
-  });
-
-  droppables.forEach(drop => {
-    drop.addEventListener("dragover", e => e.preventDefault());
-    drop.addEventListener("drop", e => {
-      const draggedData = e.dataTransfer.getData("text");
-      if (draggedData === drop.dataset.accept) {
-        drop.classList.add("correct");
-        feedback.textContent = `✅ Correct: "${draggedData}" matched!`;
-      } else {
-        drop.classList.add("wrong");
-        feedback.textContent = `❌ Try again.`;
-      }
-    });
-  });
-}
-
-// ---- QUIZ ----
+// Quiz
 function startQuiz() {
-  quizSection.classList.remove("hidden");
-  const timerEl = document.getElementById("quiz-timer");
-  const quizContainer = document.getElementById("quiz-container");
-  const submitBtn = document.getElementById("submitQuizBtn");
-  const resultEl = document.getElementById("quiz-result");
-
-  const quiz = [
-    { q: "Which keyword defines a method in C#?", o: ["void", "public", "class", "main"], a: 0 },
-    { q: "What function runs once at start?", o: ["Update()", "Awake()", "Start()", "Run()"], a: 2 },
-    { q: "Which function runs every frame?", o: ["Loop()", "Update()", "Run()", "Frame()"], a: 1 },
-    { q: "Which command changes color of GameObject?", o: ["transform.scale", "material.color", "colorChange()", "setColor"], a: 1 },
-    { q: "Conditionals check for:", o: ["Loops", "Decisions", "Variables", "Imports"], a: 1 }
+  videoSection.classList.add('hidden');
+  activitySection.classList.add('hidden');
+  quizSection.classList.remove('hidden');
+  const quizQuestions = [
+    { q: "What does 'void' mean in C#?", options: ["Returns a value", "Returns nothing", "Creates variable"], correct: 1 },
+    { q: "Which Unity function runs every frame?", options: ["Start()", "Update()", "Repeat()"], correct: 1 },
+    { q: "What component controls position?", options: ["Transform", "Rigidbody", "Collider"], correct: 0 },
+    { q: "What keyword checks a condition?", options: ["for", "if", "when"], correct: 1 },
+    { q: "Which is used for text?", options: ["int", "bool", "string"], correct: 2 }
   ];
 
-  quizContainer.innerHTML = quiz.map((q, i) => `
-    <div>
+  const quizContainer = document.getElementById('quiz-container');
+  quizContainer.innerHTML = quizQuestions.map((q, i) => `
+    <div class="quiz-question">
       <p>${i + 1}. ${q.q}</p>
-      ${q.o.map((opt, j) => `<label><input type="radio" name="q${i}" value="${j}">${opt}</label>`).join("<br>")}
-    </div>
-  `).join("<hr>");
+      ${q.options.map((opt, j) =>
+        `<label><input type="radio" name="q${i}" value="${j}">${opt}</label>`
+      ).join('<br>')}
+    </div>`).join('<hr>');
 
   let timeLeft = 300;
+  const timerEl = document.getElementById('quiz-timer');
   const timer = setInterval(() => {
-    const min = Math.floor(timeLeft / 60);
-    const sec = timeLeft % 60;
-    timerEl.textContent = `Time Left: ${min}:${sec < 10 ? "0" : ""}${sec}`;
-    if (--timeLeft <= 0) {
+    timeLeft--;
+    const m = Math.floor(timeLeft / 60);
+    const s = timeLeft % 60;
+    timerEl.textContent = `Time Left: ${m}:${s < 10 ? '0' : ''}${s}`;
+    if (timeLeft <= 0) {
       clearInterval(timer);
       submitQuiz();
     }
   }, 1000);
 
-  submitBtn.onclick = submitQuiz;
+  document.getElementById('submit-quiz-btn').onclick = submitQuiz;
 
   function submitQuiz() {
     clearInterval(timer);
     let score = 0;
-    quiz.forEach((q, i) => {
+    quizQuestions.forEach((q, i) => {
       const ans = document.querySelector(`input[name="q${i}"]:checked`);
-      if (ans && parseInt(ans.value) === q.a) score++;
+      if (ans && parseInt(ans.value) === q.correct) score++;
     });
-    resultEl.textContent = `You scored ${score}/${quiz.length}!`;
-    localStorage.setItem("course1Locked", "true");
-
-    setTimeout(() => {
-      quizSection.classList.add("hidden");
-      lockedSection.classList.remove("hidden");
-    }, 2500);
+    document.getElementById('quiz-result').textContent = `You scored ${score}/${quizQuestions.length}!`;
+    localStorage.setItem('unity_course1_progress', 'complete');
+    document.getElementById('dashboard-btn').classList.remove('hidden');
   }
 }
 
-// ---- Lock check ----
-window.onload = () => {
-  if (localStorage.getItem("course1Locked") === "true") {
-    lessonSection.classList.add("hidden");
-    quizSection.classList.add("hidden");
-    lockedSection.classList.remove("hidden");
-  } else {
-    loadLesson(currentLesson);
-  }
+document.getElementById('dashboard-btn').onclick = () => {
+  localStorage.removeItem('unity_course1_progress');
+  window.location.href = "dashboard.html";
 };
+
+if (localStorage.getItem('unity_course1_progress') === 'quiz') startQuiz();
+else if (localStorage.getItem('unity_course1_progress') === 'complete') {
+  quizSection.classList.remove('hidden');
+  document.getElementById('quiz-result').textContent = "✅ Course Complete!";
+  document.getElementById('dashboard-btn').classList.remove('hidden');
+}
