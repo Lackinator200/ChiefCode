@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unity C# Course 1</title>
+  <link rel="stylesheet" href="style5.css">
+</head>
+<body>
+  <header>
+    <h1>Unity C# Basics - Course 1</h1>
+  </header>
+
+  <section id="lesson-section">
+    <h2 id="lesson-title"></h2>
+    <div id="lesson-video-container">
+      <video id="lesson-video" controls></video>
+      <button id="continue-btn">Continue</button>
+    </div>
+
+    <div id="lesson-reading" class="hidden">
+      <p id="lesson-description"></p>
+      <pre><code id="lesson-example"></code></pre>
+      <button id="toActivityBtn">Start Activity</button>
+    </div>
+
+    <div id="lesson-activity" class="hidden">
+      <p id="activity-instruction"></p>
+      <div class="drag-container">
+        <div class="draggables" id="draggable-container"></div>
+        <div class="droppables" id="droppable-container"></div>
+      </div>
+      <p id="activity-feedback"></p>
+      <button id="nextLessonBtn">Next Lesson</button>
+    </div>
+  </section>
+
+  <section id="quiz-section" class="hidden">
+    <h2>Final Quiz</h2>
+    <p>You have 5 minutes to complete this quiz.</p>
+    <div id="quiz-timer">Time Left: 5:00</div>
+    <div id="quiz-container"></div>
+    <button id="submitQuizBtn">Submit Quiz</button>
+    <p id="quiz-result"></p>
+  </section>
+
+  <section id="locked-section" class="hidden">
+    <h2>✅ Course Complete!</h2>
+    <p>You’ve completed all 6 Unity C# lessons and the quiz.</p>
+    <a href="dashboard.html" id="dashboardLink">Go to Dashboard</a>
+  </section>
+
+  <script src="course1.js"></script>
+</body>
+</html>

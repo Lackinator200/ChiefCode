@@ -106,5 +106,41 @@
               }
           });
       </script>
+      <script>
+        // Topbar and account logo hide on scroll down, show on scroll up
+        let lastScrollY = window.scrollY;
+        const topbar = document.querySelector('.topnav-left');
+        const accountFace = document.getElementById('account-face');
+        let ticking = false;
+
+        function handleScroll() {
+          const currentScrollY = window.scrollY;
+          if (currentScrollY > lastScrollY && currentScrollY > 60) {
+            // Scrolling down
+            topbar.style.transform = 'translateY(-100%)';
+            if (accountFace) accountFace.style.transform = 'translateY(-100%)';
+          } else {
+            // Scrolling up
+            topbar.style.transform = 'translateY(0)';
+            if (accountFace) accountFace.style.transform = 'translateY(0)';
+          }
+          lastScrollY = currentScrollY;
+          ticking = false;
+        }
+
+        window.addEventListener('scroll', function() {
+          if (!ticking) {
+            window.requestAnimationFrame(handleScroll);
+            ticking = true;
+          }
+        });
+        // Ensure topbar and account logo are visible on page load
+        topbar.style.transition = 'transform 0.3s cubic-bezier(0.4,0,0.2,1)';
+        topbar.style.transform = 'translateY(0)';
+        if (accountFace) {
+          accountFace.style.transition = 'transform 0.3s cubic-bezier(0.4,0,0.2,1)';
+          accountFace.style.transform = 'translateY(0)';
+        }
+      </script>
     </body>
 </html>

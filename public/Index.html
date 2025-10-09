@@ -50,7 +50,6 @@
                         <h3>ChiefCode is a platform that provides a wide range of courses and resources about game development for all game developers around the world. You need the courses, 
                         </h3><h3><b>we got them!</b></h3>
                     </div>
-                    <div>
                     <div class="what">
                     <h2>What do we provide?</h2>
                     </div>
@@ -61,7 +60,7 @@
                         </div>
                         <div class="whitewithborder">
                            <h2>Learn, try and do</h2> 
-                            <p>We also provide a option where instead of reading and listening on what it is, and what to do, we do with experiences and small guessings!</p>
+                            <p>We also provide a option where instead of reading and listening on what it is, and what to do, we do with experiences and quiz to test it!</p>
                         </div>
                         <div class="whitewithborder">
                             <h2>level progress</h2>
@@ -115,10 +114,7 @@
                             </div>
                         </div>
                     </div>
-                    </div>
                 </div>
-            </section>
-            <section>
                 <div class="grey-section">
                     <div>
                     <h3>trusted by more than: <bold>5</bold> associations</h3>
@@ -135,12 +131,48 @@
                     </div>
                 </div>
         </div>
+        </section>
         <div class="footer">
             <h1>Contact us</h1>
             <p>For any questions or inquiries, please contact us at:</p>
             <p>Email: chiefcode.ceo@gmail.com</p>
         </div>
-    </section>
-    </div>
-    </body>
+        </div>
+        <script>
+                // Topbar and account logo hide on scroll down, show on scroll up
+                let lastScrollY = window.scrollY;
+                const topbar = document.querySelector('.topnav-left');
+                const accountFace = document.getElementById('account-face');
+                let ticking = false;
+
+                function handleScroll() {
+                    const currentScrollY = window.scrollY;
+                    if (currentScrollY > lastScrollY && currentScrollY > 60) {
+                        // Scrolling down
+                        topbar.style.transform = 'translateY(-100%)';
+                        if (accountFace) accountFace.style.transform = 'translateY(-100%)';
+                    } else {
+                        // Scrolling up
+                        topbar.style.transform = 'translateY(0)';
+                        if (accountFace) accountFace.style.transform = 'translateY(0)';
+                    }
+                    lastScrollY = currentScrollY;
+                    ticking = false;
+                }
+
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(handleScroll);
+                        ticking = true;
+                    }
+                });
+                // Ensure topbar and account logo are visible on page load
+                topbar.style.transition = 'transform 0.3s cubic-bezier(0.4,0,0.2,1)';
+                topbar.style.transform = 'translateY(0)';
+                if (accountFace) {
+                    accountFace.style.transition = 'transform 0.3s cubic-bezier(0.4,0,0.2,1)';
+                    accountFace.style.transform = 'translateY(0)';
+                }
+        </script>
+        </body>
 </html>
