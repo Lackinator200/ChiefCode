@@ -21,8 +21,9 @@
                 <a href="#support">Support</a>
                 </div>
                     <div class="topnav-right">
-                        <img id="account-face" class="account-face" src="https://lh3.googleusercontent.com/ogw/AF2bZyjfCoFjgFSwrJ3mHBAebjaY-ZESfcEeQvAsdpNUp5tv6UM=s32-c-mo" srcset="https://lh3.googleusercontent.com/ogw/AF2bZyjfCoFjgFSwrJ3mHBAebjaY-ZESfcEeQvAsdpNUp5tv6UM=s32-c-mo 1x, https://lh3.googleusercontent.com/ogw/AF2bZyjfCoFjgFSwrJ3mHBAebjaY-ZESfcEeQvAsdpNUp5tv6UM=s64-c-mo" alt="Account">
-                    </div>
+                    <a href="#signup" class="right">Sign Up</a>
+                    <a href="login.html" class="right">Login</a>
+                </div>
             </div>
         </div>
     </header>
@@ -63,7 +64,7 @@
                     </div>
                     <div class="course-details">
                     <p>Learn how to see the properties of a GameObject in Unity, like: Positions, rotations, textiles, compoments, and RigidBody</p>
-                    <p class="course-progress">Course progress: not started</p>
+                    <p class="course-progress" id="course1-status">Course progress: not started</p>
                     <a class="open-course-button" href="scriptingCode.html">Open course</a>
                     </div>
                 </div>
@@ -78,7 +79,7 @@
                 <p>
                     Know how to add audio to your game, like: background music, sound effects, and voice overs
                 </p>
-                    <p class="course-progress">Course progress: not started</p>
+                    <p class="course-progress" id="course2-status">Course progress: not started</p>
                     <button class="open-course-button">Open course</button>
                 </div>
                 </div>
@@ -108,7 +109,7 @@
                 <p>
                     know about the AI system in Unity, and how to make enemies chase you, and attack you.
                 </p>
-                    <p class="course-progress">Course progress: not started</p>
+                    <p class="course-progress" id="course3-status">Course progress: not started</p>
                     <button class="open-course-button">Open course</button>
                 </div>
                 </div>
@@ -123,7 +124,7 @@
                 <p>
                     Learn how to add animations to your characters, and make them move, jump, and run. and also add audio to your game.
                 </p>
-                    <p class="course-progress">Course progress: not started</p>
+                    <p class="course-progress" id="course4-status">Course progress: not started</p>
                     <button class="open-course-button">Open course</button>
                 </div>
                 </div>
@@ -140,40 +141,19 @@
             </div>
         </div>
     </section>
-    <div id="account-info-bar">
-        <span class="close-button">×</span>
-        <img class="avatar-large" src="https://lh3.googleusercontent.com/ogw/AF2bZyjfCoFjgFSwrJ3mHBAebjaY-ZESfcEeQvAsdpNUp5tv6UM=s32-c-mo" srcset="https://lh3.googleusercontent.com/ogw/AF2bZyjfCoFjgFSwrJ3mHBAebjaY-ZESfcEeQvAsdpNUp5tv6UM=s32-c-mo 1x, https://lh3.googleusercontent.com/ogw/AF2bZyjfCoFjgFSwrJ3mHBAebjaY-ZESfcEeQvAsdpNUp5tv6UM=s64-c-mo" alt="Account Avatar">
-        <div class="account-name">Waseem Alyousif</div>
-        <div class="account-level">Lv: 7</div>
-        <ul class="options-menu">
-            <li><a href="#">Manage my studio settings</a></li>
-            <li><a href="#">Manage my account settings</a></li>
-            <li><a href="#">Advanced settings</a></li>
-            <li><a href="#">Switch account</a></li>
-        </ul>
-    </div>
         <script>
-                // Account bar logic
-                const accountIcon = document.getElementById('account-face');
-                const accountInfoBar = document.getElementById('account-info-bar');
-                const closeButton = document.querySelector('#account-info-bar .close-button');
+            const courses = [
+  { id: "course1-status", key: "unity_course1_progress" },
+  { id: "course2-status", key: "unity_course2_progress" },
+  { id: "course3-status", key: "unity_course3_progress" }
+];
 
-                accountIcon.addEventListener('click', () => {
-                        accountInfoBar.classList.add('show');
-                        document.body.style.overflow = 'hidden';
-                });
-
-                closeButton.addEventListener('click', () => {
-                        accountInfoBar.classList.remove('show');
-                        document.body.style.overflow = '';
-                });
-
-                document.addEventListener('click', (event) => {
-                        if (!accountInfoBar.contains(event.target) && event.target !== accountIcon) {
-                                accountInfoBar.classList.remove('show');
-                                document.body.style.overflow = '';
-                        }
-                });
+courses.forEach(c => {
+  const el = document.getElementById(c.id);
+  const progress = localStorage.getItem(c.key);
+  if (progress === "complete") el.textContent = "Course progress: ✅ completed";
+  else if (progress > 0) el.textContent = "Course progress: in progress";
+});
 
                 // Course card button hover/click logic
                 document.querySelectorAll('.course-card').forEach(card => {
