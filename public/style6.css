@@ -1,0 +1,120 @@
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Add a black background color to the top navigation */
+.topnav-left {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background-color: #000000; /* Solid background */
+  color: white;
+  padding: 15px 20px;
+  z-index: 1000;
+  opacity: 1;        
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav-left a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  .topnav-left a img {
+    width: auto;
+    height: 40px;
+    margin-right: 8px;
+    background-image: url("file:///C:/Users/Waseem/OneDrive/Desktop/VS%20Code%20files/.vscode/my%20personal%20project/photos/Logo.png");
+  }
+  
+  /* Change the color of links on hover */
+  .topnav-left a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Add a color to the active/current link */
+  .topnav-left a.active {
+    background-color: #0b7c2b;
+    color: white;
+  }
+
+  .logo {
+    float: left;
+    background-size:cover;
+    background-position: left;
+    background-image: url("photos\Logo.png");
+    width: 100px;
+    height: 50px;
+  }
+
+  .topnav-right {
+    float: right;
+    text-align: right;
+  }
+
+  .studio-Main {
+    margin-top: 150px; /* Adjust based on the height of your navbar */
+    padding: 20px;
+  }
+
+  #studio-Name {
+    font-size: 28px;
+    font-weight: bold;
+    margin-left: 10px;
+  }
+
+  .calendar {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .calendar-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .member-list {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.member-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  min-width: 140px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background: #222;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.empty-slot {
+  opacity: 0.6;
+  background: #eee;
+}

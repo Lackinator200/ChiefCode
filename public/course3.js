@@ -174,11 +174,12 @@ function startQuiz() {
   activitySection.classList.add('hidden');
   quizSection.classList.remove('hidden');
   const quizQuestions = [
-    { q: "Which component is used for pathfinding?", options: ["Rigidbody", "NavMeshAgent", "Collider"], correct: 1 },
-    { q: "What does 'Bake' refer to?", options: ["Run in play mode", "Generate NavMesh", "Create a prefab"], correct: 1 },
-    { q: "What does spatialBlend usually affect?", options: ["Lighting", "Audio 2D/3D mix", "Physics"], correct: 1 },
-    { q: "Which structure helps organize AI behaviors?", options: ["Array", "State Machine", "Coroutine"], correct: 1 },
-    { q: "Why profile AI code?", options: ["To add more features", "To measure performance", "To change colors"], correct: 1 }
+    { q: "What is a NavMeshAgent used for?", options: ["Rendering models", "Pathfinding and movement", "Handling input"], correct: 1 },
+    { q: "Why bake a NavMesh?", options: ["To generate navigation data for agents", "To create textures", "To export models"], correct: 0 },
+    { q: "What benefit does good AI bring to a game?", options: ["Better immersion and challenge", "Faster loading times", "Higher resolution textures"], correct: 0 },
+    { q: "Which step uses NavMesh to avoid obstacles?", options: ["State machine", "Pathfinding", "Profiling"], correct: 1 },
+    { q: "What does a State Machine help organize?", options: ["Graphic settings", "Behavior modes like Patrol/Chase/Attack", "Sound mixing"], correct: 1 },
+    { q: "Why optimize AI updates?", options: ["To reduce CPU usage and improve performance", "To change colors of NPCs", "To increase texture size"], correct: 0 }
   ];
 
   const quizContainer = document.getElementById('quiz-container');

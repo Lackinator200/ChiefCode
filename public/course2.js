@@ -196,11 +196,11 @@ function startQuiz() {
   activitySection.classList.add('hidden');
   quizSection.classList.remove('hidden');
   const quizQuestions = [
-    { q: "What does 'void' mean in C#?", options: ["Returns a value", "Returns nothing", "Creates variable"], correct: 1 },
-    { q: "Which Unity function runs every frame?", options: ["Start()", "Update()", "Repeat()"], correct: 1 },
-    { q: "What component controls position?", options: ["Transform", "Rigidbody", "Collider"], correct: 0 },
-    { q: "What keyword checks a condition?", options: ["for", "if", "when"], correct: 1 },
-    { q: "Which is used for text?", options: ["int", "bool", "string"], correct: 2 }
+    { q: "Which component plays audio clips in Unity?", options: ["AudioSource", "AudioClip", "Rigidbody"], correct: 0 },
+    { q: "Where do you assign an AudioClip to play?", options: ["In the Inspector on an AudioSource", "In the Transform component", "In the Renderer"], correct: 0 },
+    { q: "What does PlayOneShot do?", options: ["Plays a clip once without interrupting others", "Loops a clip forever", "Deletes a clip"], correct: 0 },
+    { q: "Which property mixes 2D and 3D audio?", options: ["maxDistance", "volume", "spatialBlend"], correct: 2 },
+    { q: "When would you trigger audio in code?", options: ["On an event like jump or death", "Only in Start() always", "Never"], correct: 0 }
   ];
 
   const quizContainer = document.getElementById('quiz-container');
