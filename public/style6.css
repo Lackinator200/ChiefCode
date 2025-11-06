@@ -75,16 +75,35 @@ html, body {
     margin-left: 10px;
   }
 
-  .calendar {
-    margin-top: 20px;
-    text-align: center;
-  }
+.calendar-container {
+    width: 80%;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
 
-  .calendar-header {
-    font-size: 24px;
-    font-weight: bold;
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 10px;
-  }
+}
+
+#monthlyTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#monthlyTable th, #monthlyTable td {
+    border: 1px solid #eee;
+    padding: 8px;
+    text-align: center;
+}
+
+#monthlyTable td.current-day {
+    background-color: lightblue;
+}
   .member-list {
   display: flex;
   gap: 10px;
