@@ -27,6 +27,38 @@ html, body {
     height: auto;
     }
     
+    .footer {
+  background-color: #000000;
+  color: white;
+  left: -10px;
+  float: left;
+  text-align: center;
+  z-index: 1000;
+  padding: 10px 0px;
+  position: relative;
+  bottom: 0;
+  width: 110%;
+  height: 150px;
+}
+
+.footer p {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  margin-right: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+
+.footer-right {
+  width: 40px;
+  height: auto;
+  float: right;
+  text-align: right;
+  margin-right: 50px;
+}
     /* Style the links inside the navigation bar */
     .topnav-left a {
       float: left;
