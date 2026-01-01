@@ -140,39 +140,67 @@ function enableDragDrop() {
   const draggables = document.querySelectorAll('.draggable');
   const droppables = document.querySelectorAll('.droppable');
   let correctCount = 0;
+  let selectedDrag = null;
+  const lesson = lessons[currentLesson];
 
   draggables.forEach(drag => {
-    drag.addEventListener('dragstart', e => e.dataTransfer.setData('text', drag.dataset.term));
+    // Desktop drag-drop
+    drag.addEventListener('dragstart', e => {
+      e.dataTransfer.setData('text', drag.dataset.term);
+    });
+
+    // Mobile touch support
+    drag.addEventListener('touchstart', e => {
+      selectedDrag = drag;
+      drag.classList.add('dragging');
+      e.preventDefault();
+    });
   });
 
   droppables.forEach(drop => {
+    // Desktop drag-drop
     drop.addEventListener('dragover', e => e.preventDefault());
     drop.addEventListener('drop', e => {
       const draggedTerm = e.dataTransfer.getData('text');
-      if (!drop.classList.contains('correct')) {
-        if (draggedTerm === drop.dataset.term) {
-          drop.classList.add('correct');
-          correctCount++;
-          feedback.textContent = `✅ ${draggedTerm} is correct! (${correctCount}/3)`;
-        } else {
-          drop.classList.add('wrong');
-          feedback.textContent = `❌ Incorrect match. Try again! (${correctCount}/3)`;
-        }
+      handleMatch(draggedTerm, drop);
+    });
 
-        if (correctCount >= 3) {
-          nextLessonBtn.classList.remove('hidden');
-          feedback.textContent = "🎉 Great work! You completed this activity.";
-        } else if (correctCount < 2 && document.querySelectorAll('.wrong').length >= 1) {
-          feedback.textContent = "⚠️ You need to review again.";
-          setTimeout(() => {
-            activitySection.classList.add('hidden');
-            readingSection.classList.remove('hidden');
-            feedback.textContent = '';
-          }, 1500);
-        }
+    // Mobile touch support
+    drop.addEventListener('touchend', e => {
+      if (selectedDrag) {
+        const draggedTerm = selectedDrag.dataset.term;
+        handleMatch(draggedTerm, drop);
+        selectedDrag.classList.remove('dragging');
+        selectedDrag = null;
       }
+      e.preventDefault();
     });
   });
+
+  function handleMatch(draggedTerm, drop) {
+    if (!drop.classList.contains('correct')) {
+      if (draggedTerm === drop.dataset.term) {
+        drop.classList.add('correct');
+        correctCount++;
+        feedback.textContent = `✅ ${draggedTerm} is correct! (${correctCount}/${lesson.activity.length})`;
+      } else {
+        drop.classList.add('wrong');
+        feedback.textContent = `❌ Incorrect match. Try again! (${correctCount}/${lesson.activity.length})`;
+      }
+
+      if (correctCount >= lesson.activity.length) {
+        nextLessonBtn.classList.remove('hidden');
+        feedback.textContent = "🎉 Great work! You completed this activity.";
+      } else if (correctCount < 2 && document.querySelectorAll('.wrong').length >= 1) {
+        feedback.textContent = "⚠️ You need to review again.";
+        setTimeout(() => {
+          activitySection.classList.add('hidden');
+          readingSection.classList.remove('hidden');
+          feedback.textContent = '';
+        }, 1500);
+      }
+    }
+  }
 }
 
 nextLessonBtn.onclick = () => {

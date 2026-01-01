@@ -79,11 +79,41 @@ button:hover {
   padding: 10px;
   border-radius: 8px;
   cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+.draggable.dragging {
+  opacity: 0.5;
+  background-color: #4b6aff;
 }
 
 .droppable {
   border: 2px dashed #4b6aff;
   min-height: 40px;
+  transition: all 0.2s ease;
+}
+
+@media (max-width: 768px) {
+  .drag-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .draggables, .droppables {
+    width: 100%;
+    max-width: 90vw;
+  }
+
+  .draggable, .droppable {
+    padding: 12px;
+    font-size: 16px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .droppable.correct {
